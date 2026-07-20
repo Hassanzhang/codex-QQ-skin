@@ -1145,6 +1145,19 @@ html.codex-qq-skin[data-dream-three-pane="true"] [data-pip-obstacle="thread-summ
   backdrop-filter: none !important;
 }
 
+/* Codex keeps a 300px minimum width on the native summary card. Once the rail
+   is intentionally narrowed, that inner card otherwise overflows its 280px
+   wrapper while the companion correctly stays within it. */
+html.codex-qq-skin[data-dream-three-pane="true"]
+  [data-pip-obstacle="thread-summary-panel"] > :first-child,
+html.codex-qq-skin[data-dream-three-pane="true"]
+  [data-pip-obstacle="thread-summary-panel"] > :first-child > :first-child {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
 /* Give the native environment sections the same blue-silver separators as the
    companion card, without changing any of Codex's controls or event targets. */
 html.codex-qq-skin[data-dream-three-pane="true"]
