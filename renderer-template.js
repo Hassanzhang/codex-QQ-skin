@@ -1016,7 +1016,15 @@
     if (valueNode) setTextContent(valueNode, usageValue);
     else setTextContent(node, remaining == null ? "本周剩余 --" : `本周剩余 ${remaining}%`);
     if (node.dataset) {
-      node.dataset.level = remaining == null ? "unknown" : remaining <= 5 ? "critical" : remaining <= 20 ? "low" : "normal";
+      node.dataset.level = remaining == null
+        ? "unknown"
+        : remaining >= 70
+          ? "high"
+          : remaining >= 40
+            ? "medium"
+            : remaining >= 20
+              ? "low"
+              : "critical";
       node.dataset.account = accountIdentity;
       node.dataset.visibleAccount = visibleAccount;
     }
