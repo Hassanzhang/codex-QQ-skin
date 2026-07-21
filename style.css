@@ -2486,6 +2486,164 @@ html.codex-qq-skin[data-dream-shell="light"]
   background: linear-gradient(180deg, #4698d6, #196bac) !important;
 }
 
+/* Classic QQ editor composition: a white writing field and a separate command
+   row. Codex retains ownership of every live control. */
+html.codex-qq-skin[data-dream-shell="light"]
+  main.main-surface:not(.qq-skin-home-shell) .composer-surface-chrome {
+  min-height: 120px !important;
+  padding: 0 6px 6px !important;
+  border-radius: 0 0 8px 8px !important;
+  background: #f2f7fb !important;
+  box-shadow:
+    0 8px 18px rgb(44 91 137 / .13),
+    inset 0 1px #75abd5 !important;
+}
+
+html.codex-qq-skin[data-dream-shell="light"]
+  main.main-surface:not(.qq-skin-home-shell) .composer-surface-chrome [class*="_footer_"] {
+  margin: 0 !important;
+  padding: 7px 8px 4px !important;
+  gap: 0 !important;
+}
+
+html.codex-qq-skin[data-dream-shell="light"]
+  main.main-surface:not(.qq-skin-home-shell) .composer-surface-chrome div:has(> [data-codex-composer]) {
+  margin: 0 0 7px !important;
+  padding: 7px 9px !important;
+  border: 1px solid #a3b8cc !important;
+  background: #fff !important;
+  box-shadow: inset 1px 1px 2px rgb(0 0 0 / .10) !important;
+}
+
+html.codex-qq-skin[data-dream-shell="light"]
+  main.main-surface:not(.qq-skin-home-shell) .composer-surface-chrome [data-codex-composer] {
+  min-height: 58px !important;
+  color: #1a1c1c !important;
+}
+
+html.codex-qq-skin[data-dream-shell="light"]
+  main.main-surface:not(.qq-skin-home-shell) .composer-surface-chrome [class*="_footer_"] > .row-start-2 {
+  min-height: 34px !important;
+  align-self: center !important;
+}
+
+/* Use the reference skin's labelled send button when Codex is ready to send.
+   The running-state control remains an honest stop button rather than being
+   relabelled as a send action. */
+html.codex-qq-skin[data-dream-shell="light"]
+  .composer-surface-chrome button.bg-token-foreground[aria-label*="发送"],
+html.codex-qq-skin[data-dream-shell="light"]
+  .composer-surface-chrome button.bg-token-foreground[aria-label*="send" i] {
+  width: 92px !important;
+  min-width: 92px !important;
+  padding: 0 12px !important;
+  font-size: 0 !important;
+}
+
+html.codex-qq-skin[data-dream-shell="light"]
+  .composer-surface-chrome button.bg-token-foreground[aria-label*="发送"] svg,
+html.codex-qq-skin[data-dream-shell="light"]
+  .composer-surface-chrome button.bg-token-foreground[aria-label*="send" i] svg {
+  display: none !important;
+}
+
+html.codex-qq-skin[data-dream-shell="light"]
+  .composer-surface-chrome button.bg-token-foreground[aria-label*="发送"]::after,
+html.codex-qq-skin[data-dream-shell="light"]
+  .composer-surface-chrome button.bg-token-foreground[aria-label*="send" i]::after {
+  content: "发送 (S)";
+  color: #fff;
+  font: 700 12px/1 Arial, "PingFang SC", sans-serif;
+  white-space: nowrap;
+}
+
+/* Codex swaps the action button's token class between idle and running.
+   Its footer position is stable, so use that structure for the idle send
+   state instead of depending on a transient colour utility class. */
+html.codex-qq-skin[data-dream-shell="light"]
+  .composer-surface-chrome [class*="_footer_"] > .col-start-3
+  .flex.shrink-0.items-center.gap-2 > button:not([aria-label="停止"]) {
+  width: 92px !important;
+  min-width: 92px !important;
+  height: 38px !important;
+  min-height: 38px !important;
+  padding: 0 12px !important;
+  border: 1px solid #3c7fb1 !important;
+  border-radius: 3px !important;
+  background: linear-gradient(180deg, #a7d1f5 0%, #6ab2eb 50%, #4a9de4 51%, #89c4f4 100%) !important;
+  color: #fff !important;
+  font-size: 0 !important;
+  box-shadow: inset 0 1px rgb(255 255 255 / .50), 0 2px 5px rgb(47 112 174 / .22) !important;
+}
+
+html.codex-qq-skin[data-dream-shell="light"]
+  .composer-surface-chrome [class*="_footer_"] > .col-start-3
+  .flex.shrink-0.items-center.gap-2 > button:not([aria-label="停止"]) svg {
+  display: none !important;
+}
+
+html.codex-qq-skin[data-dream-shell="light"]
+  .composer-surface-chrome [class*="_footer_"] > .col-start-3
+  .flex.shrink-0.items-center.gap-2 > button:not([aria-label="停止"])::after {
+  content: "发送 (S)";
+  color: #fff;
+  font: 700 12px/1 Arial, "PingFang SC", sans-serif;
+  white-space: nowrap;
+}
+
+/* Once a request is sent, the same primary position becomes a clear classic
+   cancel control. Its action still invokes Codex's native stop handler. */
+html.codex-qq-skin[data-dream-shell="light"]
+  .composer-surface-chrome button[aria-label="停止"] {
+  width: 92px !important;
+  min-width: 92px !important;
+  height: 30px !important;
+  min-height: 30px !important;
+  padding: 0 12px !important;
+  border: 1px solid #707070 !important;
+  border-radius: 3px !important;
+  background: linear-gradient(180deg, #fff 0%, #e1e1e1 50%, #d1d1d1 51%, #f1f1f1 100%) !important;
+  color: #414141 !important;
+  font-size: 0 !important;
+  box-shadow: inset 0 1px rgb(255 255 255 / .80), 0 1px 2px rgb(0 0 0 / .14) !important;
+}
+
+html.codex-qq-skin[data-dream-shell="light"]
+  .composer-surface-chrome button[aria-label="停止"] svg {
+  display: none !important;
+}
+
+html.codex-qq-skin[data-dream-shell="light"]
+  .composer-surface-chrome button[aria-label="停止"]::after {
+  content: "取消 (C)";
+  color: #414141;
+  font: 700 12px/1 Arial, "PingFang SC", sans-serif;
+  white-space: nowrap;
+}
+
+/* Attachment removal is a local action, but its close affordance shares the
+   same blue bevel and square geometry as the send control. */
+html.codex-qq-skin[data-dream-shell="light"]
+  .composer-surface-chrome :is([class*="attachment" i], [class*="Attachment"])
+  button:is([aria-label*="移除"], [aria-label*="删除"], [aria-label*="remove" i], [aria-label*="close" i]) {
+  width: 32px !important;
+  min-width: 32px !important;
+  height: 32px !important;
+  min-height: 32px !important;
+  padding: 0 !important;
+  border: 1px solid #3c7fb1 !important;
+  border-radius: 3px !important;
+  background: linear-gradient(180deg, #a7d1f5 0%, #6ab2eb 50%, #4a9de4 51%, #89c4f4 100%) !important;
+  color: #fff !important;
+  box-shadow: inset 0 1px rgb(255 255 255 / .50), 0 2px 5px rgb(47 112 174 / .22) !important;
+}
+
+html.codex-qq-skin[data-dream-shell="light"]
+  .composer-surface-chrome :is([class*="attachment" i], [class*="Attachment"])
+  button:is([aria-label*="移除"], [aria-label*="删除"], [aria-label*="remove" i], [aria-label*="close" i]) svg {
+  color: currentColor !important;
+}
+
 html.codex-qq-skin[data-dream-shell="light"]
   .qq-skin-home div:has(> .horizontal-scroll-fade-mask .group\/project-selector) {
   border: 1px solid #8bb8e0;
